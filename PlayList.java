@@ -80,6 +80,7 @@ class PlayList {
                 if (tracks[i] != null)
                 {
                     tracks[i]=null;
+                    size -- ;
                     break;
                 }
             }
