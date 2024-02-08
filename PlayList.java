@@ -255,12 +255,12 @@ class PlayList {
             return null; 
 
         int minIndex = 0;
-        int min = tracks[0].getTitle().length();
+        int min = tracks[0].getDuration();
         for (int i=1; i<tracks.length; i++)
         {
-            if (tracks[i] != null && tracks[i].getTitle().length() < min )
+            if (tracks[i] != null && tracks[i].getDuration() < min )
                 {
-                    min = tracks[i].getTitle().length() ;
+                    min = tracks[i].getDuration() ;
                     minIndex = i; 
                 }
         }
@@ -277,7 +277,7 @@ class PlayList {
         for (int i=0; i<tracks.length-1; i++)
         {
             int minIndex = minIndex(i);
-            if (minIndex(i) != -1 && minIndex != i)
+            if (minIndex != -1 && minIndex != i)
             {
                 Track temp1 = tracks[minIndex];
                 Track temp2 = tracks[i];
