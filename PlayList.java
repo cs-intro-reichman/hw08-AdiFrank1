@@ -156,8 +156,14 @@ class PlayList {
 
        if (i >= 0 && i < tracks.length && tracks[i] != null)
         {
-            tracks[i] = null;
-        }
+            for (int j = i; j < tracks.length - 1; j++) 
+            
+               { 
+                    tracks[j] = tracks[j + 1];
+               }
+
+            tracks[tracks.length - 1] = null;
+            }
 
     }
 
