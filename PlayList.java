@@ -80,9 +80,9 @@ class PlayList {
         //// replace this comment with your code
         if (tracks[0]!= null)
         {
-                for (int i=0;i<tracks.length;i++)
+                for (int i = tracks.length - 1; i >= 0; i--)
             {
-                if (tracks[i+1]==null)
+                if (tracks[i] != null)
                 {
                     tracks[i]=null;
                     break;
