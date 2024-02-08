@@ -211,9 +211,9 @@ class PlayList {
         if (totalSize > this.getMaxSize())
             return ;
         
-        int currentIndex = this.getSize();
+        int currentIndex = this.getSize()+1;
 
-            for (int j=0; j< other.getSize(); j++)
+            for (int j=0; j< other.size; j++)
             {    
                 if (currentIndex < this.getMaxSize())
                 {
