@@ -226,7 +226,7 @@ class PlayList {
      */
     private int minIndex(int start) 
     { //// replace the following statement with your code
-        int min=0;
+        int min=Integer.MAX_VALUE;
         int minIndex1 = -1;
 
         if (start < 0 || start >= this.getSize())
