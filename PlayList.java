@@ -64,11 +64,13 @@ class PlayList {
 
         for (int i=0; i<tracks.length; i++)
         {
-            playlist += tracks[i].toString() + "\n";
-
+            if (tracks[i] != null)
+            {
+                playlist += tracks[i].toString() + "\n";
+            }
             
         }
-        return playlist;
+        return playlist.toString();
     }
 
     /** Removes the last track from this list. If the list is empty, does nothing. */
@@ -277,7 +279,7 @@ class PlayList {
                 Track temp2 = tracks[i];
 
                 tracks[i] = temp1;
-                tracks [minIndex] = temp2;
+                tracks [minIndex(i)] = temp2;
             }
             
         }
