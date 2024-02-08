@@ -37,23 +37,18 @@ class PlayList {
     public boolean add(Track track) 
     {
         //// replace the following statement with your code
+
         if (this.getSize() == this.getMaxSize())
             return false;
 
-        else
-        {
-            for (int i=0; i<tracks.length; i++)
+
+        if (size < maxSize) 
             {
-                if (tracks[i] == null)
-                {
-                    tracks[i] = track;
-                    return true;
-                }
+                tracks[size++] = track;
+                return true;
             }
-        }
 
-
-        return false;
+            return false;
     }
 
     /** Returns the data of this list, as a string. Each track appears in a separate line. */
@@ -159,16 +154,10 @@ class PlayList {
     public void remove(int i)
     {    //// replace this comment with your code
 
-       if (i < 0 || this.getSize() ==0 || i > this.getMaxSize())
+       if (i >= 0 && i < tracks.length && tracks[i] != null)
         {
-
+            tracks[i] = null;
         }
-
-        else
-
-            {
-                this.tracks[i] = null;
-            }
 
     }
 
@@ -190,11 +179,16 @@ class PlayList {
     public void removeFirst()
     { //// replace this comment with your code
         
-        if (this.getSize() !=0)
+        if (this.getSize() > 0)
         {
-            this.tracks[0] = null ;
-        }
+            for (int i = 0; i < tracks.length - 1; i++) 
+            {
+                tracks[i] = tracks[i + 1];
+            }
 
+            tracks[tracks.length-1] = null;
+
+        }
     }
     
     /** Adds all the tracks in the other list to the end of this list. 
@@ -224,23 +218,21 @@ class PlayList {
     private int minIndex(int start) 
     { //// replace the following statement with your code
         int min=0;
-        int minIndex1 = 0;
+        int minIndex1 = -1;
 
-        if (start < 0 || start > this.getSize()-1)
+        if (start < 0 || start >= this.getSize())
         {
             return -1;
         }
         else 
         {
-            min = tracks[start].getDuration();
-            for (int i=start+1; i<tracks.length; i++)
+            for (int i=start; i<tracks.length; i++)
             {
-                if (tracks[i].getDuration() < min)
+                if (tracks[i] != null && (( tracks[i].getDuration() < min) || minIndex1 == -1 ))
                     { 
+                        min = tracks[i].getDuration();
                         minIndex1 = i;
                     }
-
-                min = tracks[i].getDuration();
             }
         }
         return minIndex1;
@@ -257,7 +249,7 @@ class PlayList {
         int min = tracks[0].getTitle().length();
         for (int i=1; i<tracks.length; i++)
         {
-            if (tracks[i].getTitle().length() < min )
+            if (tracks[i] != null && tracks[i].getTitle().length() < min )
                 {
                     min = tracks[i].getTitle().length() ;
                     minIndex = i; 
