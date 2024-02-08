@@ -196,6 +196,7 @@ class PlayList {
             }
 
             tracks[tracks.length-1] = null;
+            size--;
 
         }
     }
@@ -205,18 +206,27 @@ class PlayList {
     //// An elegant and terribly inefficient implementation.
      public void add(PlayList other) 
     {//// replace this comment with your code
-     
-        if (this.getSize() + other.getSize() != this.getMaxSize())
-        {
-            int sum = this.getSize() + other.getSize();
+
+        int totalSize = this.getSize() + other.getSize();
+        if (totalSize > this.getMaxSize())
+            return ;
+        
+        int currentIndex = this.getSize();
+
             for (int j=0; j<other.tracks.length; j++)
-            {    for (int i=tracks.length; i<sum; i++)
-                    {
-                    tracks[i] = other.tracks[j];
-                    }
+            {    
+                if (currentIndex < this.getMaxSize())
+                {
+                    this.tracks[currentIndex] = other.getTrack(j);
+                    currentIndex++;
+                }
+                else
+                {
+                    break;
+                }
+                
             }
         }
-    }
 
     /** Returns the index in this list of the track that has the shortest duration,
      *  starting the search in location start. For example, if the durations are 
@@ -293,3 +303,5 @@ class PlayList {
         //// replace this statement with your code
     }
 }
+
+
