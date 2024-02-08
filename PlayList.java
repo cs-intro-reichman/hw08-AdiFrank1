@@ -98,7 +98,10 @@ class PlayList {
         int total = 0;
         for (int i=0;i<tracks.length;i++)
         {
-             total +=  tracks[i].getDuration();
+            if (tracks[i] != null)
+            {
+                total +=  tracks[i].getDuration();
+            }
         }
         return total;
     }
@@ -109,7 +112,7 @@ class PlayList {
     {   //// replace the following statement with your code
         for (int i=0;i<tracks.length;i++)
         {
-            if (tracks[i].getTitle().equals(title))
+            if (tracks[i] != null && tracks[i].getTitle().equals(title))
                 return i;
         }
         return -1;
