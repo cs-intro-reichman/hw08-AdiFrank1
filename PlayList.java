@@ -213,12 +213,13 @@ class PlayList {
         
         int currentIndex = this.getSize();
 
-            for (int j=0; j<other.tracks.length; j++)
+            for (int j=0; j< other.getSize(); j++)
             {    
                 if (currentIndex < this.getMaxSize())
                 {
                     this.tracks[currentIndex] = other.getTrack(j);
                     currentIndex++;
+                    this.size++;
                 }
                 else
                 {
@@ -303,5 +304,6 @@ class PlayList {
         //// replace this statement with your code
     }
 }
+    
 
 
