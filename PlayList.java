@@ -283,7 +283,7 @@ class PlayList {
                 Track temp2 = tracks[i];
 
                 tracks[i] = temp1;
-                tracks [minIndex(i)] = temp2;
+                tracks [minIndex] = temp2;
             }
             
         }
