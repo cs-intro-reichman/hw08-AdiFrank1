@@ -161,6 +161,7 @@ class PlayList {
                { 
                     tracks[j] = tracks[j + 1];
                }
+        
 
             tracks[tracks.length - 1] = null;
             }
