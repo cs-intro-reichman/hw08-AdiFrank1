@@ -165,6 +165,7 @@ class PlayList {
         
 
             tracks[tracks.length - 1] = null;
+            size -- ;
             }
 
     }
