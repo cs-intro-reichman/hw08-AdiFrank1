@@ -139,6 +139,7 @@ class PlayList {
                 if (j==i)
                 {
                     tracks[j] = track;
+                    size++;
                     return true;
                 }
                     tracks[j] = tracks [j-1];
