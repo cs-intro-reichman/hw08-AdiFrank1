@@ -45,7 +45,6 @@ class PlayList {
         if (size < maxSize) 
             {
                 tracks[size++] = track;
-                size++;
                 return true;
             }
 
@@ -131,7 +130,6 @@ class PlayList {
         if (this.getSize() == 0)
         {
             tracks[0] = track;
-            size++;
             return true;
         }
 
@@ -141,9 +139,7 @@ class PlayList {
                 if (j==i)
                 {
                     tracks[j] = track;
-                    size++;
                     return true;
-                    
                 }
                     tracks[j] = tracks [j-1];
                     
@@ -184,7 +180,6 @@ class PlayList {
         if (this.getSize() !=0 && index != -1)
         {
             remove(index);
-            size --;
         }
 
     }
@@ -224,7 +219,7 @@ class PlayList {
                 {
                     this.tracks[currentIndex] = other.getTrack(j);
                     currentIndex++;
-                    size++;
+                    this.size++;
                 }
                 else
                 {
